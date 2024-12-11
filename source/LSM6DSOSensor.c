@@ -3023,12 +3023,13 @@ uint8_t IO_Read(LSM6DSO_t *pdev, uint8_t* pBuffer, uint8_t RegisterAddr, uint16_
 uint8_t IO_Write(LSM6DSO_t *pdev, uint8_t* pBuffer, uint8_t RegisterAddr, uint16_t NumByteToWrite)
 {  
   if (pdev->dev_i2c) {
-
-    uint8 wr_buffer[2];
+    uint8 wr_buffer[30]; // sperando che non si faccia mai trasferimenti più grandi di 30
     wr_buffer[0] = RegisterAddr;
-    wr_buffer[1] = *pBuffer;
-    cyhal_i2c_master_write(pdev->dev_i2c, LSM6DSO_I2C_ADD_H, wr_buffer, NumByteToWrite, 0, true);
 
+    for (uint8 i=0; i<NumByteToWrite; i++)     
+      wr_buffer[i+1] = pBuffer[i];
+    cyhal_i2c_master_write(pdev->dev_i2c, LSM6DSO_I2C_ADD_H, wr_buffer, NumByteToWrite+1, 0, true);
+ 
     return 0;
   }
 
