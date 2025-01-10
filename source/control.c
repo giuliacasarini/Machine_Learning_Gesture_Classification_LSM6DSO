@@ -82,6 +82,7 @@ void control(MTB_ML_DATA_T* result_buffer, int model_output_size)
     printf("\x1b[2J\x1b[;H");
 
     /* Prints the confidence level of each class */
+    printf("Gesture Classification based on LSM6DSO sensor\r\n");
     printf("| Gesture         | Confidence\r\n");
     printf("--------------------------------\r\n");
     printf("| %s:", gesture_one);

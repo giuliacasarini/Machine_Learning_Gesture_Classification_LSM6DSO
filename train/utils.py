@@ -121,5 +121,5 @@ def plot_summary(model, path):
     @param path: Path to plot model summary
     """
     if not os.path.isfile(path):
-        with open(path, 'w') as f:
+        with open(path, 'w', encoding='utf-8') as f:
             model.summary(print_fn=lambda x: f.write(x + '\n'))

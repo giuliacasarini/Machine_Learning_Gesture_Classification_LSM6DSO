@@ -51,7 +51,7 @@
 /* Define if should run inference or print data to the terminal */
 /* 0u - run inference engine (default) */
 /* 1u - print sensor data to the terminal */
-#define GESTURE_DATA_COLLECTION_MODE     1u
+#define GESTURE_DATA_COLLECTION_MODE     0u
 
 /*******************************************************************************
 * Global Variables
