@@ -42,11 +42,11 @@
 *******************************************************************************/
 
 const char gesture_one[] = "Circle";
-const char gesture_two[] = "SideToSide";
-const char gesture_three[] = "Square";
-const char gesture_four[] = "negative";
+const char gesture_two[] = "Negative";
+const char gesture_three[] = "SideToSide";
+const char gesture_four[] = "Square";
 
 const char dash_ges_one[] = "          ";
-const char dash_ges_two[] = "      ";
-const char dash_ges_three[] = "          ";
-const char dash_ges_four[] = "        ";
+const char dash_ges_two[] = "        ";
+const char dash_ges_three[] = "      ";
+const char dash_ges_four[] = "          ";
