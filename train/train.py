@@ -95,12 +95,10 @@ class TrainModel(object):
         @param model: The model, whos size will be calculated
         """
         print(model.summary())
-        var_sizes = []
-        for v in model.trainable_variables: 
-            dtype = np.dtype(v.dtype) 
-            var_size = np.prod(list(map(int, v.shape))) * dtype.itemsize 
-            var_sizes.append(var_size)
-
+        var_sizes = [
+            np.product(list(map(int, v.shape))) * v.dtype.size
+            for v in model.trainable_variables
+        ]
         print("[INFO] Model size:", sum(var_sizes) / 1024, "KB")
 
     def build_square_model(self, seq_length):
@@ -215,7 +213,7 @@ class TrainModel(object):
         print("[INFO] Start training")
         self.calculate_model_size(model)
         plot_summary(model, path=f"{self.logdir}/model.txt")
-        optimizer = tf.keras.optimizers.Adam(learning_rate=0.0001)
+        optimizer = tf.keras.optimizers.Adam(lr=0.0001)
         model.compile(optimizer=optimizer, loss="sparse_categorical_crossentropy", metrics=["accuracy"])
 
         train_data, valid_data, test_data, test_labels, train_labels = self.structure_data(train_data, valid_data,
@@ -250,7 +248,6 @@ class TrainModel(object):
 
     def prune_model(self, model, train_data, valid_data, test_data, sparsity_level=50):
         print("[INFO] Model pruning started")
-        print(type(model))
         sparsity_level = int(sparsity_level)/100
         epochs_pruning = 3
         pruned_model_name = "gesture_model_f32_pruned"

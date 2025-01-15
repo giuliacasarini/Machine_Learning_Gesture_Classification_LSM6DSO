@@ -1,8 +1,8 @@
 {
     "data": {
         "calibration_data": {
-            "base_folder": "C:/Users/giuli/Desktop/mtw/Machine_Learning_Gesture_Classification",
-            "data_file": "C:/Users/giuli/Desktop/mtw/Machine_Learning_Gesture_Classification/train/calibration.npz",
+            "base_folder": "C:/Users/pedro/Downloads/Machine_Learning_Gesture_Classification_LSM6DSO",
+            "data_file": "C:/Users/pedro/Downloads/Machine_Learning_Gesture_Classification_LSM6DSO/train/calibration.npz",
             "data_mode": "normal",
             "dataset_structure": "npz"
         },
@@ -14,7 +14,7 @@
     "model": {
         "inference_engine": "tflm",
         "key_model": "MAGIC_WAND",
-        "load_model": "C:/Users/giuli/Desktop/mtw/Machine_Learning_Gesture_Classification/pretrained_models/User_generated_model.h5",
+        "load_model": "C:/Users/pedro/Downloads/Machine_Learning_Gesture_Classification_LSM6DSO/pretrained_models/User_generated_model.h5",
         "optimization_settings": {
             "headroom_weights": 6,
             "quantization": [
